@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6beaf02a79a41415f9c1e0ae3ca4e4ea, type: 3}
+  m_Name: Button Group Default
+  m_EditorClassIdentifier: 
+  buttonGroupVisualPrefab: {fileID: 1685602594090896381, guid: d861370beb96f4283bede39d3f09eaa9,
+    type: 3}
+  weight: 1
+  image: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  text: Continue
