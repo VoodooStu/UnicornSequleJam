@@ -20,5 +20,5 @@ MonoBehaviour:
   _currencyPerMinute: 0
   _sproutObject: {fileID: -927199367670048503, guid: 8e1b5203fe16a4c0aa7a144d9ed4ee47,
     type: 3}
-  _flowerObject: {fileID: 3007054816828011904, guid: a8fcded4c12494738aa8451ddb295c78,
+  _flowerObject: {fileID: 6963072765260616668, guid: 70210ead2733b403fad3aa6102673418,
     type: 3}
