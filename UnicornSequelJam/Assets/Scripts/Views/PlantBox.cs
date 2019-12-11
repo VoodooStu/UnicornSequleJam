@@ -102,6 +102,7 @@ public class PlantBox : MonoBehaviour
             SeedText.text = seed._name;
         _plantTime = DateTime.Now;
         Transform t = Instantiate(seed._sproutObject, _spawnPoint).transform;
+        t.localPosition = Vector3.zero;
         t.localScale = Vector3.zero;
         t.DOScale(Vector3.one, 0.1f);
         _hasReturnedSeed = false;
