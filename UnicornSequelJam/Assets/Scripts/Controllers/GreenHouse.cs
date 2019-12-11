@@ -9,7 +9,7 @@ using static SeedBoxContainer;
 public class GreenHouse : MonoBehaviour
 {
     public List<Seed> _currentSeeds = new List<Seed>();
-    
+
     public List<Seed> _currentPlants = new List<Seed>();
     public List<PlantData> _plantData = new List<PlantData>();
     public string GreenHouseName;
@@ -21,7 +21,7 @@ public class GreenHouse : MonoBehaviour
 
     SeedBox _selectedBox;
 
-   
+
 
     public void SaveSeeds()
     {
@@ -41,8 +41,8 @@ public class GreenHouse : MonoBehaviour
             if (_plantData != null)
                 BinaryPrefs.SetClass<List<PlantData>>(GreenHouseName + PlantsString, _plantData);
         }
-       
-        
+
+
 
     }
 
@@ -53,11 +53,56 @@ public class GreenHouse : MonoBehaviour
         {
             _seedBoxContainer.OnSeedPurchase += SeedPurchaseEvent;
             _seedBoxContainer.OnSeedSelected += SeedSelectedEvent;
+            _seedBoxContainer.OnSeedDropped += SeedDroppedEvent;
         }
         if (_plantBoxContainer != null)
         {
             _plantBoxContainer.OnBoxSelect += PlantBoxSelected;
+            _plantBoxContainer.PlantCall += PlantCallBack;
         }
+    }
+
+    private void PlantCallBack(PlantBox box, SeedBox seedBox)
+    {
+        if (box == null || seedBox == null)
+        {
+            return;
+        }
+        if (box.IsFull || !seedBox.IsFull)
+        {
+            return;
+        }
+        box.PlantSeed(seedBox._currentSeed);
+        seedBox.RemoveSeed();
+        SaveSeeds();
+    }
+
+    private void SeedDroppedEvent(SeedBox _seedBox, SeedBox _selectBox)
+    {
+        if (_selectBox == null || _seedBox == null)
+            return;
+        if (_selectBox.IsFull && _seedBox.IsFull)
+        {
+            // Merge seeds attempt
+            SeedController.Instance.MergeSeeds(_selectedBox._currentSeed, _seedBox._currentSeed, (s) => {
+               
+                _seedBox.PlaceSeed(s);
+                _selectBox.RemoveSeed();
+               
+            }, () => {
+                
+
+            });
+
+        }
+        else if (!_seedBox.IsFull && _selectBox.IsFull)
+        {
+            // Move seed from box
+            _seedBox.PlaceSeed(_selectedBox._currentSeed);
+            _selectedBox.RemoveSeed();
+        }
+        SaveSeeds();
+
     }
 
     private void PlantBoxSelected(PlantBox _box)
@@ -89,6 +134,18 @@ public class GreenHouse : MonoBehaviour
 
     private void SeedSelectedEvent(SeedBox _seedBox)
     {
+        _selectedBox = _seedBox;
+        if (_seedBox.IsFull)
+        {
+            InputController.Instance.DragSeedBegin(_seedBox);
+            return;
+        }
+        else
+        {
+            _seedBox.PlaceSeed(SeedController.Instance.GetSeed(0));
+            _selectedBox = null;
+        }
+        return;
         if (_selectedBox != null&&_seedBox!=null && _selectedBox!=_seedBox)
         {
             if(_selectedBox.IsFull&& _seedBox.IsFull)

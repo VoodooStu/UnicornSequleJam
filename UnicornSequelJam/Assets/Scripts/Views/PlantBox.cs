@@ -3,9 +3,21 @@ using System.Collections;
 using System;
 using UnityEngine.UI;
 using VoodooPackages.Tech.Times;
+using DG.Tweening;
 
 public class PlantBox : MonoBehaviour
 {
+
+    public delegate void SelectBox(PlantBox _box);
+    public SelectBox OnBoxSelect;
+
+    public MeshRenderer _mesh;
+    public Material _growing;
+    public Material _harvestable;
+    public Material _goldProducing;
+
+    public Transform _spawnPoint;
+
     public bool fullyGrown
     {
         get
@@ -26,13 +38,13 @@ public class PlantBox : MonoBehaviour
     
     private void TimerTicked(Timer _timer)
     {
-       
+        SetColor();
         if (!IsFull)
         {
             return;
         }
         UpdateTimer();
-        SetColor();
+      
         if (!previousFullyGrown && fullyGrown)
         {
             previousFullyGrown = true;
@@ -47,15 +59,22 @@ public class PlantBox : MonoBehaviour
         {
             double totalGrowthTime = _currentSeed._growthTime.TotalSeconds;
             double currentGrowthTime = (DateTime.Now - _plantTime).TotalSeconds;
-
-            SeedText.text = _currentSeed._name + "\n" + ((int)((currentGrowthTime / totalGrowthTime)*100)).ToString() + "%";
+            if (SeedText != null)
+                SeedText.text = _currentSeed._name + "\n" + ((int)((currentGrowthTime / totalGrowthTime)*100)).ToString() + "%";
         }
         else
         {
             if (!_hasReturnedSeed)
-                SeedText.text = _currentSeed._name + "\n" + "Collect Seed";
+            {
+                if (SeedText != null)
+                    SeedText.text = _currentSeed._name + "\n" + "Collect Seed";
+            }
             else
-                SeedText.text = _currentSeed._name + "\n" + "Give Gold";
+            {
+                if (SeedText != null)
+                    SeedText.text = _currentSeed._name + "\n" + "Give Gold";
+            }
+                
 
         }
 
@@ -68,6 +87,9 @@ public class PlantBox : MonoBehaviour
             return _currentSeed != null;
         }
     }
+
+    public delegate void PlantSeedCallBack(PlantBox box,SeedBox seedBox);
+    public PlantSeedCallBack PlantCallBack;
     public Text SeedText;
     public Seed _currentSeed;
     public DateTime _plantTime;
@@ -76,8 +98,13 @@ public class PlantBox : MonoBehaviour
     internal void PlantSeed(Seed seed)
     {
         _currentSeed = seed;
-        SeedText.text = seed._name;
+        if (SeedText != null)
+            SeedText.text = seed._name;
         _plantTime = DateTime.Now;
+        Transform t = Instantiate(seed._sproutObject, _spawnPoint).transform;
+        t.localPosition = Vector3.zero;
+        t.localScale = Vector3.zero;
+        t.DOScale(Vector3.one, 0.1f);
         _hasReturnedSeed = false;
     }
 
@@ -113,7 +140,8 @@ public class PlantBox : MonoBehaviour
     internal void LoadPlant(PlantData _data)
     {
         _currentSeed = SeedController.Instance.GetSeed(_data.plantID);
-        SeedText.text = _currentSeed._name;
+        if(SeedText!=null)
+            SeedText.text = _currentSeed._name;
         _plantTime = _data.plantTime;
         _hasReturnedSeed = _data.hasReturnedSeed;
         SetColor();
@@ -124,20 +152,32 @@ public class PlantBox : MonoBehaviour
         
         Color col = Color.white;
         if (!IsFull)
-            col = Color.cyan;
+        {
+            if(_mesh!=null)
+                _mesh.gameObject.SetActive(false);
+        }
+            
         else if (fullyGrown)
         {
+            _mesh.gameObject.SetActive(true);
             if (_hasReturnedSeed)
-                col = Color.yellow;
+            {
+                if (_mesh != null)
+                    _mesh.material = _goldProducing;
+            }
             else
-                col = Color.magenta;
+            {
+                if (_mesh != null)
+                    _mesh.material = _harvestable;
+            }
         }
         else
         {
-            col = Color.green;
+            _mesh.gameObject.SetActive(true);
+            if (_mesh != null)
+                _mesh.material = _growing;
         }
-        if(_iconImage!=null)
-            _iconImage.color = col;
+      
     }
 }
 

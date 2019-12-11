@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class SeedBoxContainer : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class SeedBoxContainer : MonoBehaviour
 
     public delegate void SeedSelected(SeedBox _box);
     public SeedSelected OnSeedSelected;
-
+    public delegate void SeedDropped(SeedBox targetBox,SeedBox selectedBox);
+    public SeedDropped OnSeedDropped;
     public delegate Seed SeedPurchase();
 
     internal List<Seed> CurrentSeeds()
@@ -49,7 +51,19 @@ public class SeedBoxContainer : MonoBehaviour
         {
             _seedBoxes[i].PlaceSeed(currentSeeds[i]);
         }
+        for (int i = 0; i < _seedBoxes.Count ; i++)
+        {
+            _seedBoxes[i].ClickCall += ClickSeedBox;
+            _seedBoxes[i].DropCall += DropSeedBox;
+        }
     }
+
+    private void DropSeedBox(SeedBox targetBox,SeedBox selectedBox)
+    {
+        OnSeedDropped?.Invoke(targetBox,selectedBox);
+
+    }
+
     public void ClickSeedBox(SeedBox _box)
     {
         
