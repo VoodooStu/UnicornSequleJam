@@ -97,6 +97,7 @@ public class PlantBox : MonoBehaviour
     internal bool _hasReturnedSeed = false;
     internal void PlantSeed(Seed seed)
     {
+        CleanObjects();
         _currentSeed = seed;
         if (SeedText != null)
             SeedText.text = seed._name;
@@ -105,7 +106,18 @@ public class PlantBox : MonoBehaviour
         t.localPosition = Vector3.zero;
         t.localScale = Vector3.zero;
         t.DOScale(Vector3.one, 0.1f);
+        _sapling = t.gameObject;
+        _plant = Instantiate(seed._flowerObject, _spawnPoint).gameObject;
+        _plant.transform.localPosition = Vector3.zero;
         _hasReturnedSeed = false;
+    }
+
+    private void CleanObjects()
+    {
+        if (_sapling != null)
+            Destroy(_sapling);
+        if (_plant != null)
+            Destroy(_plant);
     }
 
     internal PlantData GetData()
@@ -144,38 +156,41 @@ public class PlantBox : MonoBehaviour
             SeedText.text = _currentSeed._name;
         _plantTime = _data.plantTime;
         _hasReturnedSeed = _data.hasReturnedSeed;
+        CleanObjects();
+        Transform t = Instantiate(_currentSeed._sproutObject, _spawnPoint).transform;
+        t.localPosition = Vector3.zero;
+        t.localScale = Vector3.zero;
+        t.DOScale(Vector3.one, 0.1f);
+        _sapling = t.gameObject;
+        _plant = Instantiate(_currentSeed._flowerObject, _spawnPoint).gameObject;
+        _plant.transform.localPosition = Vector3.zero;
         SetColor();
     }
+    private GameObject _sapling;
+    private GameObject _plant;
 
+    void SaplingSwitch(bool v)
+    {
+        if (_sapling != null)
+            _sapling.SetActive(v);
+    }
+    void PlantSwitch(bool v)
+    {
+        if (_plant != null)
+            _plant.SetActive(v);
+    }
     private void SetColor()
     {
-        
-        Color col = Color.white;
+
         if (!IsFull)
         {
-            if(_mesh!=null)
-                _mesh.gameObject.SetActive(false);
-        }
-            
-        else if (fullyGrown)
-        {
-            _mesh.gameObject.SetActive(true);
-            if (_hasReturnedSeed)
-            {
-                if (_mesh != null)
-                    _mesh.material = _goldProducing;
-            }
-            else
-            {
-                if (_mesh != null)
-                    _mesh.material = _harvestable;
-            }
+            SaplingSwitch(false);
+            PlantSwitch(false);
         }
         else
         {
-            _mesh.gameObject.SetActive(true);
-            if (_mesh != null)
-                _mesh.material = _growing;
+            SaplingSwitch(!fullyGrown);
+            PlantSwitch(fullyGrown);
         }
       
     }

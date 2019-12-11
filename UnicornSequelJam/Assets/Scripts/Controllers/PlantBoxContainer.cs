@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class PlantBoxContainer : MonoBehaviour
 {
-
+    public Transform BoxParent;
+    public PlantBox PlantBoxPrefab;
+    public Vector3 _Spacing;
+    public int _count = 9;
+    public int _rowCount = 4;
     public delegate void SelectPlantBox(PlantBox _box);
     public SelectPlantBox OnBoxSelect;
     public delegate void PlantSeedCallBack(PlantBox box, SeedBox seedBox);
@@ -30,6 +34,7 @@ public class PlantBoxContainer : MonoBehaviour
 
     internal void Initialize(List<PlantData> currentSeeds)
     {
+        CreateBoxes();
         for (int i = 0; i < _plantBoxes.Count; i++)
         {
             _plantBoxes[i].OnBoxSelect += ClickPlantBox;
@@ -42,6 +47,19 @@ public class PlantBoxContainer : MonoBehaviour
             _plantBoxes[i].LoadPlant(currentSeeds[i]);
         }
        
+    }
+
+    private void CreateBoxes()
+    {
+        for(int i = 0; i < _count/_rowCount; i++)
+        {
+            for(int h = 0; h < _rowCount; h++)
+            {
+                PlantBox p = Instantiate(PlantBoxPrefab, BoxParent);
+                p.transform.localPosition = new Vector3(_Spacing.x * h, _Spacing.y, _Spacing.z * i);
+                _plantBoxes.Add(p);
+            }
+        }
     }
 
     private void PlantCallBack(PlantBox box, SeedBox seedBox)
