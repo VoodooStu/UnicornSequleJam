@@ -12,6 +12,21 @@ public class PlantBoxContainer : MonoBehaviour
 
     public List<PlantBox> _plantBoxes = new List<PlantBox>();
 
+    public bool HasEmptySpace
+    {
+        get
+        {
+            foreach(var b in _plantBoxes)
+            {
+                if (!b.IsFull)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
     internal void Initialize(List<PlantData> currentSeeds)
     {
         if (currentSeeds == null || currentSeeds.Count< 1)

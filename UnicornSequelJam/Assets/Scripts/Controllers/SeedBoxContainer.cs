@@ -25,6 +25,22 @@ public class SeedBoxContainer : MonoBehaviour
         return seeds;
     }
 
+    public bool HasEmptySpace
+    {
+        get
+        {
+            foreach (var b in _seedBoxes)
+            {
+                if (!b.IsFull)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+
     public SeedPurchase OnSeedPurchase;
 
     internal void Initialize(List<Seed> currentSeeds)
@@ -38,5 +54,17 @@ public class SeedBoxContainer : MonoBehaviour
     {
         
         OnSeedSelected?.Invoke(_box);
+    }
+
+    internal void AddToSlot(Seed _seed)
+    {
+        foreach(var b in _seedBoxes)
+        {
+            if (!b.IsFull)
+            {
+                b.PlaceSeed(_seed);
+                return;
+            }
+        }
     }
 }

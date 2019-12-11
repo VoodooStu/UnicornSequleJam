@@ -9,7 +9,14 @@ public class Seed : ScriptableObject
     public string _id = Guid.NewGuid().ToString();
     public string _name;
     public Sprite _icon;
-    public TimeSpan _growthTime;
+    public TimeSpan _growthTime
+    {
+        get
+        {
+            return new TimeSpan(0,_growthTimeInMinutes,0);
+        }
+    }
+    public int _growthTimeInMinutes;
     public double _currencyPerMinute;
     
 }

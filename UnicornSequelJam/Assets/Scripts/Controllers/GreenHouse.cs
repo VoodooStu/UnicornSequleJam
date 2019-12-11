@@ -21,6 +21,8 @@ public class GreenHouse : MonoBehaviour
 
     SeedBox _selectedBox;
 
+   
+
     public void SaveSeeds()
     {
         if (_seedBoxContainer != null)
@@ -60,9 +62,18 @@ public class GreenHouse : MonoBehaviour
 
     private void PlantBoxSelected(PlantBox _box)
     {
-        if (_box.IsFull)
+        if (_box.IsFull && _box.fullyGrown && !_box._hasReturnedSeed )
         {
             // Try Harvest
+            if (_seedBoxContainer.HasEmptySpace)
+            {
+                Seed _seed = _box.Harvest();
+                if (_seed != null)
+                {
+                    _seedBoxContainer.AddToSlot(_seed);
+                    SaveSeeds();
+                }
+            }
         }
         else if(_selectedBox!=null &&_selectedBox.IsFull)
         {
@@ -201,4 +212,5 @@ public struct PlantData
 {
     public DateTime plantTime;
     public string plantID;
+    public bool hasReturnedSeed;
 }
