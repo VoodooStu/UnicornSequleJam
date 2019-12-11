@@ -69,7 +69,7 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _RampSmooth: 1
-    - _RampThreshold: 0.5
+    - _RampThreshold: 0
     - _Smoothness: 0.2
     - _SmoothnessTextureChannel: 0
     - _SpecSmooth: 0.05
@@ -83,5 +83,5 @@ Material:
     - _Color: {r: 0.8941177, g: 0.77647066, b: 0.6039216, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SColor: {r: 0.4433962, g: 0.30844954, b: 0.11084905, a: 1}
+    - _SColor: {r: 0.6037736, g: 0.4782803, b: 0.29334286, a: 1}
     - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

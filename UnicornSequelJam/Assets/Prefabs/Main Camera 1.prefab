@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1616406936726632296
+--- !u!1 &9018817186765724709
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1616406936726632299}
-  - component: {fileID: 1616406936726632298}
-  - component: {fileID: 1616406936726632297}
+  - component: {fileID: 9018817186765724710}
+  - component: {fileID: 9018817186765724711}
+  - component: {fileID: 9018817186765724708}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Main Camera 1
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1616406936726632299
+--- !u!4 &9018817186765724710
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616406936726632296}
-  m_LocalRotation: {x: -0.35128847, y: 0.53106326, z: -0.25744048, w: -0.7268375}
-  m_LocalPosition: {x: 3.22, y: 3.52, z: -0.76}
+  m_GameObject: {fileID: 9018817186765724709}
+  m_LocalRotation: {x: -0.42264384, y: 0.5664342, z: -0.42113265, w: -0.56848204}
+  m_LocalPosition: {x: 1.53, y: 3.09, z: 0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 51.637, y: -72.257, z: 0.104}
---- !u!20 &1616406936726632298
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &9018817186765724711
 Camera:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616406936726632296}
+  m_GameObject: {fileID: 9018817186765724709}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -55,11 +55,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: -14.05
   far clip plane: 1000
-  field of view: 45
+  field of view: 60
   orthographic: 1
-  orthographic size: 1.97
+  orthographic size: 2.07
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -75,11 +75,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1616406936726632297
+--- !u!81 &9018817186765724708
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616406936726632296}
+  m_GameObject: {fileID: 9018817186765724709}
   m_Enabled: 1
