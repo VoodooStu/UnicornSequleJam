@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fabfc3b566a8842bc9afe1daf5b27ee9, type: 3}
+  m_Name: Currency
+  m_EditorClassIdentifier: 
+  id: 639270394
+  itemName: 
+  icon: {fileID: 0}
+  color: {r: 1, g: 1, b: 1, a: 1}
+  enabled: 0
+  defaultAmount: 0
+  maxAmount: 1.7976931348623157e+308
+  currentAmount: 0

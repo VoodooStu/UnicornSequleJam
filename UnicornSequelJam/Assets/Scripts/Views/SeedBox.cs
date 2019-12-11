@@ -25,11 +25,20 @@ public class SeedBox : MonoBehaviour
 
     internal void RemoveSeed()
     {
-        SeedText.text = "empty";
+        SeedText.text = "Empty";
+        _currentSeed = null;
     }
     public void ForceAdd()
     {
-        if(_currentSeed==null)
+        if (_currentSeed == null)
+        {
             PlaceSeed(SeedController.Instance.GetSeed(0));
+            SeedController.Instance.AddSeed(_currentSeed);
+        }
+        else
+        {
+            TestController.Instance.SelectSeedBox(this);
+        }
+           
     }
 }

@@ -9,20 +9,68 @@ public class SeedController : SingletonMB<SeedController>
 {
     public List<Seed> _seedLibrary = new List<Seed>();
 
+    public List<Seed> _viewedSeeds = new List<Seed>();
+
     
-    public List<Seed> _currentSeeds = new List<Seed>();
+
+    private string SeedString = "CURRENT_SEEDS";
+    private string ViewSeedString = "VIEWED_SEEDS";
+    public void SaveSeeds()
+    {
+        List<string> ids = new List<string>();
+       
+        ids = new List<string>();
+        foreach (var s in _viewedSeeds)
+        {
+            ids.Add(s._id);
+        }
+        BinaryPrefs.SetClass<List<string>>(ViewSeedString, ids);
+    }
+
+    internal Seed GetSeed(string plantID)
+    {
+        return _seedLibrary.FirstOrDefault<Seed>(u => u._id == plantID);
+    }
+
+    private void Awake()
+    {
+        LoadSeeds();
+        
+    }
+
+    private void LoadSeeds()
+    {
+        List<string> ids = new List<string>();
+        ids = BinaryPrefs.GetClass<List<String>>(SeedString);
+        
+        ids = BinaryPrefs.GetClass<List<String>>(ViewSeedString);
+        if (ids != null && ids.Count > 0)
+        {
+            foreach (var s in ids)
+            {
+                _viewedSeeds.Add(_seedLibrary.FirstOrDefault<Seed>(u => u._id == s));
+            }
+        }
+    }
+
+    public void AddSeed(Seed seed)
+    {
+       
+        SaveSeeds();
+    }
 
     public void MergeSeeds(Seed firstSeed, Seed secondSeed, Action<Seed> onComplete, Action onFailed)
     {
-        if(HasSeed(firstSeed) && HasSeed(secondSeed))
-        {
-            if (firstSeed._index == secondSeed._index && _seedLibrary.First<Seed>(u => u._index == firstSeed._index + 1) != null)
+        
+            if (firstSeed._index == secondSeed._index && _seedLibrary.FirstOrDefault<Seed>(u => u._index == firstSeed._index + 1) != null)
             {
-                Seed newSeed = _seedLibrary.First<Seed>(u => u._index == firstSeed._index + 1);
+           
+            Seed newSeed = _seedLibrary.FirstOrDefault<Seed>(u => u._index == firstSeed._index + 1);
+            AddSeed(newSeed);
                 onComplete?.Invoke(newSeed);
                 return;
             }
-        }
+        
 
         onFailed?.Invoke();
 
@@ -39,28 +87,14 @@ public class SeedController : SingletonMB<SeedController>
         if (box.IsFull)
         {
             onFailed?.Invoke();
-        }else if (HasSeed(seed))
-        {
-            onFailed?.Invoke();
         }
         else
         {
-            RemoveFromSeeds(seed);
+           
             box.PlantSeed(seed);
             onComplete?.Invoke();
         }
     }
 
-    private bool HasSeed(Seed seed)
-    {
-        return _currentSeeds.Contains(seed);
-    }
-
-    private void RemoveFromSeeds(Seed seed)
-    {
-        if (_currentSeeds.Contains(seed))
-        {
-            _currentSeeds.Remove(seed);
-        }
-    }
+   
 }

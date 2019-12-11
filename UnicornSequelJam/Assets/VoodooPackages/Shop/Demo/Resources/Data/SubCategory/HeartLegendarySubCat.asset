@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a4ce3c5396f456cacaa204a8ed3ca4, type: 3}
+  m_Name: HeartLegendarySubCat
+  m_EditorClassIdentifier: 
+  id: 16700
+  title: LEGENDARY
+  payment: {fileID: 11400000, guid: dc59678bed99a4873a8a9cba0bafc853, type: 2}
+  line: 0
+  column: 0
+  prefab: {fileID: 1983830551556816947, guid: 74b5dc7e820074a6cabf504afe866085, type: 3}
+  skins:
+  - {fileID: 11400000, guid: c5c5a40c3fdeb46c7a18962af6bd4cc4, type: 2}
+  - {fileID: 11400000, guid: 4b8f2613bfa2d4325874fba241ad3b02, type: 2}

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlantBox : MonoBehaviour
 {
+
+
     public bool IsFull
     {
         get
@@ -14,21 +16,28 @@ public class PlantBox : MonoBehaviour
     }
     public Text SeedText;
     public Seed _currentSeed;
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public DateTime _plantTime;
 
     internal void PlantSeed(Seed seed)
     {
         _currentSeed = seed;
         SeedText.text = seed._name;
+        _plantTime = DateTime.Now;
+    }
+
+    internal PlantData GetData()
+    {
+        PlantData _data;
+        _data.plantTime = _plantTime;
+        _data.plantID = _currentSeed._id;
+        return _data;
+    }
+
+    internal void LoadPlant(PlantData _data)
+    {
+        _currentSeed = SeedController.Instance.GetSeed(_data.plantID);
+        SeedText.text = _currentSeed._name;
+        _plantTime = _data.plantTime;
     }
 }
+

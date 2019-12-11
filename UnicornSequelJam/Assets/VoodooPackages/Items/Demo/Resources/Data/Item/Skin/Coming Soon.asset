@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ec7e45242304b499881700338406c6, type: 3}
+  m_Name: Coming Soon
+  m_EditorClassIdentifier: 
+  id: 14054
+  itemName: Skin 1
+  icon: {fileID: 21300000, guid: 5ae78d6ee0490475cb71c29428db44e2, type: 3}
+  color: {r: 0.7735849, g: 0, b: 0, a: 1}
+  enabled: 1
+  unlockAtStart: 1
+  price: 0
+  isCollected: 0
+  isUsed: 0
+  previewPrefab: {fileID: 0}

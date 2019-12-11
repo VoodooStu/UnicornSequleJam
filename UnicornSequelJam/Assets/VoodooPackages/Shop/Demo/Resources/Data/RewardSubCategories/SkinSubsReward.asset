@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88222583a8c4494e8a8a8e266a6e4e2, type: 3}
+  m_Name: SkinSubsReward
+  m_EditorClassIdentifier: 
+  id: 14408
+  packName: CherrySkin
+  contents:
+  - id: 16532
+    amount: 1
+  image: {fileID: 21300000, guid: 8edffecfbfa114393a8f65a154ada616, type: 3}
+  color: {r: 0.5471698, g: 0.09549662, b: 0.09549662, a: 1}
+  subCategoriesSkin: 5c3800000e3c00009a4000001c390000
+  fallbackRewardId: 15802

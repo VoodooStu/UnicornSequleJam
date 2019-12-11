@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5a09310b80e4526b12bed82c4f139f, type: 3}
+  m_Name: SimpleAnimation
+  m_EditorClassIdentifier: 
+  delayAppearing: 0.15
+  disc:
+    center: {x: 0, y: 0, z: 0}
+    normal: {x: 0, y: 0, z: 0}
+    range: 360
+    radiusMin: 0.5
+    radiusMax: 2
+    radiusFactor: 100
+  dispersion: 1
+  scaleAppearing:
+    useCurve: 1
+    reversed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 3
+        inWeight: 0
+        outWeight: 0.3333
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1.9997001
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 3
+        inWeight: 0.3334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    curveTypeIndex: 1
+  startScaleAppearing: {x: 0, y: 0, z: 0}
+  endScaleAppearing: {x: 1, y: 1, z: 1}
+  speedAppearing:
+    useCurve: 1
+    reversed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 3
+        inWeight: 0
+        outWeight: 0.3619
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1.5709906
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 3
+        inWeight: 0.3261
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    curveTypeIndex: 13
+  delayAfterAppear: 0.2
+  delayGrouping: 0.5
+  allTogether: 0
+  delayBetweenRewards: 0.01
+  scaleGrouping:
+    useCurve: 1
+    reversed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 3
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.7
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 3
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 3
+        inWeight: 0.34452453
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    curveTypeIndex: 0
+  endScaleGrouping: {x: 0, y: 0, z: 0}
+  speedGrouping:
+    useCurve: 1
+    reversed: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 3
+        inWeight: 0
+        outWeight: 0.3333
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1.9997001
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 3
+        inWeight: 0.3334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    curveTypeIndex: 1
+  waveMovement: 1
+  waveAxis: {x: 100, y: 100, z: 0}

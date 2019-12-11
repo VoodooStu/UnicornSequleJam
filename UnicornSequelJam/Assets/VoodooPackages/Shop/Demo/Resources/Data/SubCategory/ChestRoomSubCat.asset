@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a4ce3c5396f456cacaa204a8ed3ca4, type: 3}
+  m_Name: ChestRoomSubCat
+  m_EditorClassIdentifier: 
+  id: 14428
+  title: CHEST ROOM
+  payment: {fileID: 11400000, guid: 4d258eff6ea854f5582662853d793ea4, type: 2}
+  line: 0
+  column: 0
+  prefab: {fileID: 1983830551556816947, guid: 74b5dc7e820074a6cabf504afe866085, type: 3}
+  skins:
+  - {fileID: 11400000, guid: ad288313651a7461a9ea160425fd2530, type: 2}
+  - {fileID: 11400000, guid: 81abf74e189914fe2bdca20f4cf8cbb4, type: 2}
+  - {fileID: 11400000, guid: 4c996c2a183a4494e88f93ea10a8d360, type: 2}
+  - {fileID: 11400000, guid: 25651e14bf377475dacceb7dcac90d2e, type: 2}

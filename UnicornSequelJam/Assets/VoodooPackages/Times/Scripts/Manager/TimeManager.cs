@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace VoodooPackages.Tech.Times
 {
@@ -8,6 +9,7 @@ namespace VoodooPackages.Tech.Times
         private const string LastDayKey             = "TimeManager_LastDay";
         private const string DayCountKey            = "TimeManager_DayCount";
         private const string SessionCountKey        = "TimeManager_SessionCount";
+        private const string LastLoginTimeString= "TimeManager_LastLoginTime";
         private const string DailySessionCountKey   = "TimeManager_DailySessionCount";
 
         public string   suffixDays                  = "days";
@@ -24,6 +26,20 @@ namespace VoodooPackages.Tech.Times
         public int DayCount                         => BinaryPrefs.GetInt(DayCountKey, 1);
         public int DailySessionCount                => BinaryPrefs.GetInt(DailySessionCountKey);
         public int SessionCount                     => BinaryPrefs.GetInt(SessionCountKey);
+
+        public DateTime LastLoginTime
+        {
+            set
+            {
+                BinaryPrefs.SetString(LastLoginTimeString,value.ToString());
+            }
+            get
+            {
+                if(BinaryPrefs.HasKey(LastLoginTimeString))
+                    return DateTime.Parse(BinaryPrefs.GetString(LastLoginTimeString));
+                return DateTime.Now;
+            }
+        }
 
         private void Awake()
         {
@@ -214,6 +230,10 @@ namespace VoodooPackages.Tech.Times
 
             return String.Empty;
 
-        }        
+        }
+        private void OnDestroy()
+        {
+            LastLoginTime = DateTime.Now;
+        }
     }
 }
