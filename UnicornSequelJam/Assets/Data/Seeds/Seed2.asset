@@ -15,4 +15,6 @@ MonoBehaviour:
   _index: 1
   _id: 28551ae7-930d-4f1d-8e67-64b326e37887
   _name: Seed 2
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 7877ae443547643c8a00226aa105f6c7, type: 3}
+  _growthTimeInMinutes: 2
+  _currencyPerMinute: 0
