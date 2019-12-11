@@ -18,5 +18,7 @@ public class Seed : ScriptableObject
     }
     public int _growthTimeInMinutes;
     public double _currencyPerMinute;
+    public GameObject _sproutObject;
+    public GameObject _flowerObject;
     
 }

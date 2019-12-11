@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using UnityEngine.UI;
 using VoodooPackages.Tech.Times;
+using DG.Tweening;
 
 public class PlantBox : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class PlantBox : MonoBehaviour
     public Material _growing;
     public Material _harvestable;
     public Material _goldProducing;
+
+    public Transform _spawnPoint;
 
     public bool fullyGrown
     {
@@ -98,6 +101,9 @@ public class PlantBox : MonoBehaviour
         if (SeedText != null)
             SeedText.text = seed._name;
         _plantTime = DateTime.Now;
+        Transform t = Instantiate(seed._sproutObject, _spawnPoint).transform;
+        t.localScale = Vector3.zero;
+        t.DOScale(Vector3.one, 0.1f);
         _hasReturnedSeed = false;
     }
 

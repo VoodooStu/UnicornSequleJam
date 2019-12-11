@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &199797298608780926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4750220918110426566}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4750220918110426566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199797298608780926}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 30, z: 5}
+  m_Children: []
+  m_Father: {fileID: 8074822885121229250}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4986303112500216299
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +154,7 @@ Transform:
   m_LocalScale: {x: 0.26785, y: 0.02878584, z: 0.26785}
   m_Children:
   - {fileID: 2780278282464296746}
+  - {fileID: 4750220918110426566}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -202,6 +233,7 @@ MonoBehaviour:
   _growing: {fileID: 2100000, guid: 96cf9e42b2256491d976f188b812f444, type: 2}
   _harvestable: {fileID: 2100000, guid: c77561ad461ad425bbec19c11282737a, type: 2}
   _goldProducing: {fileID: 2100000, guid: b31163a27a0f04b85b4e7b364758f425, type: 2}
+  _spawnPoint: {fileID: 4750220918110426566}
   SeedText: {fileID: 0}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 0}
