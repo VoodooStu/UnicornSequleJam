@@ -11,6 +11,7 @@ public class InputController : SingletonMB<InputController>
     // Start is called before the first frame update
     void Start()
     {
+        dragImage.gameObject.SetActive(false);
         Input.multiTouchEnabled = false;
     }
 

@@ -58,6 +58,7 @@ public class GreenHouse : MonoBehaviour
         if (_plantBoxContainer != null)
         {
             _plantBoxContainer.OnBoxSelect += PlantBoxSelected;
+            _plantBoxContainer.SavePlants += SaveSeeds;
             _plantBoxContainer.PlantCall += PlantCallBack;
         }
     }
@@ -119,12 +120,26 @@ public class GreenHouse : MonoBehaviour
                     SaveSeeds();
                 }
             }
+            else if (_box.IsFull)
+            {
+                if (PlantInteractorView.Instance != null)
+                {
+                    PlantInteractorView.Instance.OpenPanel(_box);
+                }
+            }
         }
-        else if(_selectedBox!=null &&_selectedBox.IsFull)
+        else if(!_box.IsFull&&_selectedBox != null &&_selectedBox.IsFull)
         {
             _box.PlantSeed(_selectedBox._currentSeed);
             _selectedBox.RemoveSeed();
             
+        }
+        else if (_box.IsFull)
+        {
+            if (PlantInteractorView.Instance != null)
+            {
+                PlantInteractorView.Instance.OpenPanel(_box);
+            }
         }
         _selectedBox = null;
         SaveSeeds();
@@ -249,7 +264,7 @@ public class GreenHouse : MonoBehaviour
     }
 
 
-    internal double Initialize(DateTime lastlogin)
+    internal double Initialize(double minutes)
     {
         LoadSeeds();
         if (_seedBoxContainer!=null)
@@ -260,8 +275,10 @@ public class GreenHouse : MonoBehaviour
         {
             _plantBoxContainer.Initialize(_plantData);
         }
+       
+        
 
-        return 0;
+        return _plantBoxContainer.GetEarnings(minutes); ;
     }
 }
 [Serializable]

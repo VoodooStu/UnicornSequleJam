@@ -14,7 +14,8 @@ public class PlantBoxContainer : MonoBehaviour
     public SelectPlantBox OnBoxSelect;
     public delegate void PlantSeedCallBack(PlantBox box, SeedBox seedBox);
     public PlantSeedCallBack PlantCall;
-
+    public delegate void SavePlantCallback();
+    public SavePlantCallback SavePlants;
     public List<PlantBox> _plantBoxes = new List<PlantBox>();
 
     public bool HasEmptySpace
@@ -37,6 +38,7 @@ public class PlantBoxContainer : MonoBehaviour
         CreateBoxes();
         for (int i = 0; i < _plantBoxes.Count; i++)
         {
+            _plantBoxes[i].BoxClean += BoxCleaned;
             _plantBoxes[i].OnBoxSelect += ClickPlantBox;
             _plantBoxes[i].PlantCallBack += PlantCallBack;
         }
@@ -47,6 +49,11 @@ public class PlantBoxContainer : MonoBehaviour
             _plantBoxes[i].LoadPlant(currentSeeds[i]);
         }
        
+    }
+
+    private void BoxCleaned()
+    {
+        SavePlants?.Invoke();
     }
 
     private void CreateBoxes()
@@ -83,5 +90,18 @@ public class PlantBoxContainer : MonoBehaviour
             }
         }
         return _data;
+    }
+
+    internal double GetEarnings(double v)
+    {
+        double total = 0;
+        foreach(var b in _plantBoxes)
+        {
+            if (b.IsFull&&b.fullyGrown && b._hasReturnedSeed)
+            {
+                total += b._currentSeed._currencyPerMinute * v;
+            }
+        }
+        return total;
     }
 }

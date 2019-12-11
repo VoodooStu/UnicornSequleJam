@@ -10,7 +10,8 @@ public class PlantBox : MonoBehaviour
 
     public delegate void SelectBox(PlantBox _box);
     public SelectBox OnBoxSelect;
-
+    public delegate void CleanBox();
+    public CleanBox BoxClean;
     public MeshRenderer _mesh;
     public Material _growing;
     public Material _harvestable;
@@ -51,6 +52,11 @@ public class PlantBox : MonoBehaviour
             // TODO Trigger give seed
         }
           
+    }
+
+    internal void RemoveSeed()
+    {
+        _currentSeed = null;
     }
 
     private void UpdateTimer()

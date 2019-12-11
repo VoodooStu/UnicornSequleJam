@@ -44,20 +44,22 @@ public class SeedBox : Button
             return _currentSeed != null;
         }
     }
-    public Text SeedText;
+    public Text _seedText;
     public Seed _currentSeed;
-   
+    public Image _seedIcon;
 
     internal void PlaceSeed(Seed seed)
     {
         _currentSeed = seed;
-        SeedText.text = seed._name;
+        _seedText.text = seed._name;
+        _seedIcon.sprite = seed._icon;
     }
 
     internal void RemoveSeed()
     {
-        SeedText.text = "Empty";
+        _seedText.text = "Empty";
         _currentSeed = null;
+        _seedIcon.sprite = null;
     }
     public void ForceAdd()
     {
