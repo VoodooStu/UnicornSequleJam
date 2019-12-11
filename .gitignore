@@ -9,7 +9,7 @@ UnicornSequelJam/[Bb]uild/
 UnicornSequelJam/[Bb]uilds/
 UnicornSequelJam/[Ll]ogs/
 UnicornSequelJam/[Mm]emoryCaptures/
-
+UnicornSequelJam/[Pp]roject[Ss]ettings/
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !UnicornSequelJam/[Aa]ssets/**/*.meta
 
