@@ -31,13 +31,17 @@ namespace VoodooPackages.Tech.Times
         {
             set
             {
-                BinaryPrefs.SetString(LastLoginTimeString,value.ToString());
+                BinaryPrefs.SetDouble(LastLoginTimeString,value.ToOADate());
             }
             get
             {
-                if(BinaryPrefs.HasKey(LastLoginTimeString))
-                    return DateTime.Parse(BinaryPrefs.GetString(LastLoginTimeString));
-                return DateTime.Now;
+                Double test = BinaryPrefs.GetDouble(LastLoginTimeString,-1);
+                if (test < 0)
+                {
+                    return DateTime.Now;
+                }
+                    return DateTime.FromOADate(test);
+               
             }
         }
 
@@ -234,6 +238,7 @@ namespace VoodooPackages.Tech.Times
         private void OnDestroy()
         {
             LastLoginTime = DateTime.Now;
+            BinaryPrefs.ForceSave();
         }
     }
 }

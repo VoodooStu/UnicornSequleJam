@@ -20,14 +20,19 @@ public class IncrementalController : SingletonMB<IncrementalController>
         returnsTimer = new Timer(10, 1,0f, true);
         returnsTimer.Looped += TimerTicked;
         returnsTimer.Start();
-        TimeSpan span = DateTime.Now - TimeManager.Instance.LastLoginTime;
+        TimeSpan span = DateTime.Now- TimeManager.Instance.LastLoginTime ;
         double offlineEarnings = 0;
         foreach (var g in _greenHouses)
         {
-            offlineEarnings += g.Initialize(span.TotalMinutes);
+            offlineEarnings += g.Initialize((int)span.TotalMinutes);
         }
+        Debug.Log("Total Minutes "+ (int)span.TotalMinutes);
         if (CurrencyManager.Instance != null)
         {
+            if (offlineEarnings > 0)
+            {
+                OfflineWinningsView.Instance.ShowWinnings((int)offlineEarnings);
+            }
             CurrencyManager.Instance.AddToMainCurrency(offlineEarnings);
         }
     }

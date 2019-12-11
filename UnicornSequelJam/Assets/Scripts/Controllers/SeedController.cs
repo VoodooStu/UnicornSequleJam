@@ -67,6 +67,12 @@ public class SeedController : SingletonMB<SeedController>
            
             Seed newSeed = _seedLibrary.FirstOrDefault<Seed>(u => u._index == firstSeed._index + 1);
             AddSeed(newSeed);
+            if (!_viewedSeeds.Contains(newSeed))
+            {
+                _viewedSeeds.Add(newSeed);
+                if (NewSeedCollectedView.Instance != null)
+                    NewSeedCollectedView.Instance.ShowNewSeed(newSeed);
+            }
                 onComplete?.Invoke(newSeed);
                 return;
             }
