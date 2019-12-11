@@ -4,6 +4,8 @@ namespace VoodooPackages.Tech.Times
 {
     public class Timer : System.IDisposable
     {
+        private static int ids = 0;
+        public int id = ids++;
         private float duration  = 0f;
         public  float tickRate  = 0.1f;
         private bool  loop      = false;

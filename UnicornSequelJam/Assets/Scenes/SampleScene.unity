@@ -176,6 +176,7 @@ MonoBehaviour:
   _growing: {fileID: 0}
   _harvestable: {fileID: 0}
   _goldProducing: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   SeedText: {fileID: 1827477159}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 21421284}
@@ -574,6 +575,7 @@ MonoBehaviour:
   _growing: {fileID: 0}
   _harvestable: {fileID: 0}
   _goldProducing: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   SeedText: {fileID: 746644182}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 59327659}
@@ -727,6 +729,7 @@ MonoBehaviour:
   _growing: {fileID: 0}
   _harvestable: {fileID: 0}
   _goldProducing: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   SeedText: {fileID: 950915683}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 66697176}
@@ -1288,6 +1291,7 @@ MonoBehaviour:
   _growing: {fileID: 0}
   _harvestable: {fileID: 0}
   _goldProducing: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   SeedText: {fileID: 1868038129}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 551759371}
@@ -2111,6 +2115,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8552345501065585855, guid: 44b0d282b072d4c6882c2f4d635fa4c4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8552345501065585855, guid: 44b0d282b072d4c6882c2f4d635fa4c4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8552345501065585855, guid: 44b0d282b072d4c6882c2f4d635fa4c4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44b0d282b072d4c6882c2f4d635fa4c4, type: 3}
 --- !u!1 &1206253659
@@ -2907,6 +2926,7 @@ MonoBehaviour:
   _growing: {fileID: 0}
   _harvestable: {fileID: 0}
   _goldProducing: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   SeedText: {fileID: 284699494}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 1741681719}
@@ -3371,6 +3391,7 @@ MonoBehaviour:
   _growing: {fileID: 0}
   _harvestable: {fileID: 0}
   _goldProducing: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   SeedText: {fileID: 1206253661}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 1873967715}
@@ -3524,6 +3545,7 @@ MonoBehaviour:
   _growing: {fileID: 0}
   _harvestable: {fileID: 0}
   _goldProducing: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   SeedText: {fileID: 1789380557}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 1898971241}
@@ -3758,6 +3780,7 @@ MonoBehaviour:
   _growing: {fileID: 0}
   _harvestable: {fileID: 0}
   _goldProducing: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   SeedText: {fileID: 2122260309}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 2060802777}
@@ -3911,6 +3934,7 @@ MonoBehaviour:
   _growing: {fileID: 0}
   _harvestable: {fileID: 0}
   _goldProducing: {fileID: 0}
+  _spawnPoint: {fileID: 0}
   SeedText: {fileID: 479940123}
   _currentSeed: {fileID: 0}
   _iconImage: {fileID: 2108937517}

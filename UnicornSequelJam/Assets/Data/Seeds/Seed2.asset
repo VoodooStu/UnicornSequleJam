@@ -18,3 +18,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 7877ae443547643c8a00226aa105f6c7, type: 3}
   _growthTimeInMinutes: 2
   _currencyPerMinute: 0
+  _sproutObject: {fileID: -927199367670048503, guid: ad1cfb243de3b4229a86e545b4246b06,
+    type: 3}
+  _flowerObject: {fileID: 6963072765260616668, guid: 70210ead2733b403fad3aa6102673418,
+    type: 3}
