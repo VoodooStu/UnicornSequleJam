@@ -19,6 +19,11 @@ public class PlantBox : MonoBehaviour
     public Material _goldProducing;
 
     public Transform _spawnPoint;
+    public GameObject _sparkleParticle;
+    private void Update()
+    {
+        _sparkleParticle.SetActive(!_hasReturnedSeed);
+    }
 
     public bool fullyGrown
     {
@@ -112,7 +117,7 @@ public class PlantBox : MonoBehaviour
     public Seed _currentSeed;
     public DateTime _plantTime;
     public Image _iconImage;
-    internal bool _hasReturnedSeed = false;
+    public bool _hasReturnedSeed = false;
     internal void PlantSeed(Seed seed)
     {
         CleanObjects();
@@ -127,7 +132,7 @@ public class PlantBox : MonoBehaviour
         _sapling = t.gameObject;
         _plant = Instantiate(seed._flowerObject, _spawnPoint).gameObject;
         _plant.transform.localPosition = Vector3.zero;
-        _hasReturnedSeed = false;
+        //_hasReturnedSeed = false;
        
     }
 

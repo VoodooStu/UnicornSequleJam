@@ -111,7 +111,14 @@ public class InputController : SingletonMB<InputController>
         {
             _chestObject.SetActive(true);
         }
-        
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (NewAreaUnlocked.Instance != null)
+            {
+                NewAreaUnlocked.Instance.Show();
+            }
+        }
+
     }
 
     private IEnumerator SlowlyAddToCurrency()
