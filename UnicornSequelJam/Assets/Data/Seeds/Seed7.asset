@@ -15,7 +15,7 @@ MonoBehaviour:
   _index: 6
   _id: 59066172-1c57-470f-b20b-2e233b861609
   _name: 
-  _icon: {fileID: 21300000, guid: a90f39aa112ea4c62b8b75d892303175, type: 3}
+  _icon: {fileID: 21300000, guid: aedc98778142b3142a0476395bc96068, type: 3}
   _growthTimeInMinutes: 0
   _currencyPerMinute: 0
   _sproutObject: {fileID: 4930673030078155962, guid: 5dd21fa3b52714a7d8a8ef3188cf57dd,
