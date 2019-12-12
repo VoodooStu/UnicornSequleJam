@@ -64,14 +64,15 @@ public class SeedController : SingletonMB<SeedController>
         
             if (firstSeed._index == secondSeed._index && _seedLibrary.FirstOrDefault<Seed>(u => u._index == firstSeed._index + 1) != null)
             {
-           
+            
             Seed newSeed = _seedLibrary.FirstOrDefault<Seed>(u => u._index == firstSeed._index + 1);
+            if (NewSeedCollectedView.Instance != null)
+                NewSeedCollectedView.Instance.ShowNewSeed(newSeed);
             AddSeed(newSeed);
             if (!_viewedSeeds.Contains(newSeed))
             {
                 _viewedSeeds.Add(newSeed);
-                if (NewSeedCollectedView.Instance != null)
-                    NewSeedCollectedView.Instance.ShowNewSeed(newSeed);
+               
             }
                 onComplete?.Invoke(newSeed);
                 return;
