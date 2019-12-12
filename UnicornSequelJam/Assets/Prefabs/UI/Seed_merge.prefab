@@ -455,13 +455,14 @@ GameObject:
   - component: {fileID: 1307136118392819198}
   - component: {fileID: 1307136118392819196}
   - component: {fileID: 1307136118392819199}
+  - component: {fileID: 241522767}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1307136118392819198
 RectTransform:
   m_ObjectHideFlags: 0
@@ -478,8 +479,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 12.400017}
-  m_SizeDelta: {x: -92.400024, y: -169.20001}
+  m_AnchoredPosition: {x: 0, y: 12.499996}
+  m_SizeDelta: {x: -50, y: -125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1307136118392819196
 CanvasRenderer:
@@ -519,6 +520,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &241522767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307136118392819193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae60c7103a43c4ae68d00e2e933f5cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ShakeDuration: 1
+  _ShakeStrength: 1
+  _ShakeVibrato: 10
+  _ParticlesPlayed: {fileID: 0}
 --- !u!1 &1307136118583249781
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,13 +980,14 @@ GameObject:
   - component: {fileID: 5644440486751379073}
   - component: {fileID: 2302582071695033793}
   - component: {fileID: 3965001554938614175}
+  - component: {fileID: 1613247089}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5644440486751379073
 RectTransform:
   m_ObjectHideFlags: 0
@@ -986,8 +1004,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 12.400017}
-  m_SizeDelta: {x: -92.400024, y: -169.20001}
+  m_AnchoredPosition: {x: 0, y: 12.499996}
+  m_SizeDelta: {x: -50, y: -125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2302582071695033793
 CanvasRenderer:
@@ -1027,6 +1045,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1613247089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3442159784187020808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae60c7103a43c4ae68d00e2e933f5cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ShakeDuration: 1
+  _ShakeStrength: 1
+  _ShakeVibrato: 10
+  _ParticlesPlayed: {fileID: 0}
 --- !u!1 &4099539031266850875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,13 +1163,14 @@ GameObject:
   - component: {fileID: 1814278391623881122}
   - component: {fileID: 6339113012008220524}
   - component: {fileID: 3671157401633157193}
+  - component: {fileID: 1900062242}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1814278391623881122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1152,8 +1187,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 12.400017}
-  m_SizeDelta: {x: -92.400024, y: -169.20001}
+  m_AnchoredPosition: {x: 0, y: 12.499996}
+  m_SizeDelta: {x: -50, y: -125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6339113012008220524
 CanvasRenderer:
@@ -1193,6 +1228,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1900062242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5500430483950696294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae60c7103a43c4ae68d00e2e933f5cca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ShakeDuration: 1
+  _ShakeStrength: 1
+  _ShakeVibrato: 10
+  _ParticlesPlayed: {fileID: 0}
 --- !u!1 &6442647457773492460
 GameObject:
   m_ObjectHideFlags: 0

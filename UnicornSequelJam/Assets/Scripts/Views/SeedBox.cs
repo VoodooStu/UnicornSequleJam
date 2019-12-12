@@ -52,14 +52,16 @@ public class SeedBox : Button
 
     internal void PlaceSeed(Seed seed)
     {
+       
         _currentSeed = seed;
         if(_seedText!=null)
             _seedText.text = seed._name;
         if (_seedIcon != null)
         {
+            _seedIcon.gameObject.SetActive(false);
+            _seedIcon.gameObject.SetActive(true);
             _seedIcon.sprite = seed._icon;
-            _seedIcon.transform.localScale = Vector3.one;
-            _seedIcon.transform.DOPunchScale(Vector3.one, 0.1f);
+          
         }
         if (_highlight != null)
         {
@@ -74,8 +76,13 @@ public class SeedBox : Button
             _seedText.text = "Empty";
         _currentSeed = null;
         if (_seedIcon != null)
+        {
+            _seedIcon.gameObject.SetActive(false);
             _seedIcon.sprite = null;
+        }
+           
         _highlight.SetActive(false);
+
     }
     public void ForceAdd()
     {
