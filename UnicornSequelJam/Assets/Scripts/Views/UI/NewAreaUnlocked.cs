@@ -12,6 +12,18 @@ public class NewAreaUnlocked : View<NewAreaUnlocked>
         Hide();
     }
 
+    public void HideClick()
+    {
+        if (BlackOutView.Instance != null)
+            BlackOutView.Instance.Show();
+        base.Hide();
+    }
+
+    public override void Hide()
+    {
+       
+    }
+
     public void ShowNewArea()
     {
         Show();

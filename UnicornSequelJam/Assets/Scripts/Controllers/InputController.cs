@@ -49,8 +49,11 @@ public class InputController : SingletonMB<InputController>
                 {
                     Debug.Log("Clicked on"+hit.transform.name);
                     PlantBox box = hit.transform.GetComponent<PlantBox>();
-                    if(box!=null)
+                    if (box != null)
+                    {
                         box.OnBoxSelect?.Invoke(box);
+                    }
+                       
                     else if(hit.transform.gameObject == _chestObject)
                     {
                         _chestObject.SetActive(false);
