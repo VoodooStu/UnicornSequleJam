@@ -20,7 +20,7 @@ public class SeedBox : Button
     {
         if (Input.GetMouseButton(0))
         {
-            Debug.Log("POINTER ENTER " + this.name);
+            
             if (InputController.Instance._dragSeedBox != null && InputController.Instance._dragSeedBox != this)
                 InputController.Instance._nextSeedBox = this;
         }
@@ -51,15 +51,19 @@ public class SeedBox : Button
     internal void PlaceSeed(Seed seed)
     {
         _currentSeed = seed;
-        _seedText.text = seed._name;
-        _seedIcon.sprite = seed._icon;
+        if(_seedText!=null)
+            _seedText.text = seed._name;
+        if (_seedIcon != null)
+            _seedIcon.sprite = seed._icon;
     }
 
     internal void RemoveSeed()
     {
-        _seedText.text = "Empty";
+        if(_seedText != null)
+            _seedText.text = "Empty";
         _currentSeed = null;
-        _seedIcon.sprite = null;
+        if (_seedIcon != null)
+            _seedIcon.sprite = null;
     }
     public void ForceAdd()
     {

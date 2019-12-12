@@ -4,6 +4,7 @@ using System;
 using UnityEngine.UI;
 using VoodooPackages.Tech.Times;
 using DG.Tweening;
+using VoodooPackages.Tech.Items;
 
 public class PlantBox : MonoBehaviour
 {
@@ -52,6 +53,17 @@ public class PlantBox : MonoBehaviour
             // TODO Trigger give seed
         }
           
+    }
+
+    void Start()
+    {
+        if (_currentSeed != null)
+        {
+            PlantSeed(_currentSeed);
+        }
+        checkTimer = new Timer(1, 0, 0f, true);
+        checkTimer.Ticked += TimerTicked;
+        checkTimer.Start();
     }
 
     internal void RemoveSeed()
@@ -116,6 +128,7 @@ public class PlantBox : MonoBehaviour
         _plant = Instantiate(seed._flowerObject, _spawnPoint).gameObject;
         _plant.transform.localPosition = Vector3.zero;
         _hasReturnedSeed = false;
+       
     }
 
     private void CleanObjects()
@@ -141,12 +154,7 @@ public class PlantBox : MonoBehaviour
         return _currentSeed;
     }
 
-    private void Start()
-    {
-        checkTimer = new Timer(1, 0, 0f, true);
-        checkTimer.Ticked += TimerTicked;
-        checkTimer.Start();
-    }
+    
     private void OnDisable()
     {
         //checkTimer.Stop();

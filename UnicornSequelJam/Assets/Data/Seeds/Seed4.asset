@@ -16,9 +16,9 @@ MonoBehaviour:
   _id: dcdd2c0b-ef4b-489e-aafe-eba7be56c6f3
   _name: Seed 4
   _icon: {fileID: 21300000, guid: 4303073123d7743798eea18b6d6a22b0, type: 3}
-  _growthTimeInMinutes: 8
+  _growthTimeInMinutes: 0
   _currencyPerMinute: 0
-  _sproutObject: {fileID: -927199367670048503, guid: bf385dec70da9444a9705c19525fd3ae,
+  _sproutObject: {fileID: 315926503015492181, guid: bf9a1382aa13a42a39d1cc02f9d1fe5b,
     type: 3}
-  _flowerObject: {fileID: 6963072765260616668, guid: 70210ead2733b403fad3aa6102673418,
+  _flowerObject: {fileID: 315926503015492181, guid: bf9a1382aa13a42a39d1cc02f9d1fe5b,
     type: 3}

@@ -42,7 +42,7 @@ namespace VoodooPackages.Tech.Items
 				return;
 			
 			//TODO : delay the animation.Play if the user is on android and the currencyAdded has been fired through a Rewarded Video.
-			animation.Play();
+			//animation.Play();
 		}
 
 		public virtual void Display(Currency _currency)

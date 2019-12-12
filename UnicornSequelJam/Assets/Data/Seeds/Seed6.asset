@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c80a4bf8eff7b402ba1f44c2f672e506, type: 3}
-  m_Name: Seed3
+  m_Name: Seed6
   m_EditorClassIdentifier: 
-  _index: 2
-  _id: a0849d61-378b-4810-81c7-6d860ac744aa
-  _name: Seed3
-  _icon: {fileID: 21300000, guid: da4f2d681c07146baa6bcd39eb2f0a1c, type: 3}
+  _index: 5
+  _id: 6bd160a7-4809-40f3-9b35-0a9876ed7fca
+  _name: 
+  _icon: {fileID: 21300000, guid: b79df951fddfe49079f4b9d55543550c, type: 3}
   _growthTimeInMinutes: 0
   _currencyPerMinute: 0
-  _sproutObject: {fileID: 7896613511334078116, guid: 8551f6aed41b240628107c34ebd98a8b,
+  _sproutObject: {fileID: 1488177456121623028, guid: 8ce2a8a5af92b4fd6b5eb622e639014d,
     type: 3}
-  _flowerObject: {fileID: 7896613511334078116, guid: 8551f6aed41b240628107c34ebd98a8b,
+  _flowerObject: {fileID: 1488177456121623028, guid: 8ce2a8a5af92b4fd6b5eb622e639014d,
     type: 3}

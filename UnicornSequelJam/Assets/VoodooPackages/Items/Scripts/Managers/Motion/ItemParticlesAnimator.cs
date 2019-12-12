@@ -21,7 +21,9 @@ namespace VoodooPackages.Tech.Items
 
         // Target
         private Transform               target;
-        
+
+        public ItemAnimationData DefaultAnimation;
+
         //Events
         public delegate void ItemAnimationCallback(ItemParticlesAnimation _itemToAnimate);
 
@@ -106,6 +108,8 @@ namespace VoodooPackages.Tech.Items
 
             return itemAnimationData.guid;
         }
+
+       
 
         public ItemParticlesAnimation GetUnusedOrCreate() 
         {

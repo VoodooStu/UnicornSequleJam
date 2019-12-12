@@ -17,8 +17,8 @@ MonoBehaviour:
     center: {x: 0, y: 0, z: 0}
     normal: {x: 0, y: 0, z: 0}
     range: 360
-    radiusMin: 0.5
-    radiusMax: 2
+    radiusMin: 0.1
+    radiusMax: 3
     radiusFactor: 100
   dispersion: 1
   scaleAppearing:
@@ -50,7 +50,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     curveTypeIndex: 1
   startScaleAppearing: {x: 0, y: 0, z: 0}
-  endScaleAppearing: {x: 1, y: 1, z: 1}
+  endScaleAppearing: {x: 3, y: 3, z: 3}
   speedAppearing:
     useCurve: 1
     reversed: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
   delayAfterAppear: 0.2
   delayGrouping: 0.5
   allTogether: 0
-  delayBetweenRewards: 0.01
+  delayBetweenRewards: 0
   scaleGrouping:
     useCurve: 1
     reversed: 0

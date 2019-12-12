@@ -35,7 +35,7 @@ public class PlantBoxContainer : MonoBehaviour
 
     internal void Initialize(List<PlantData> currentSeeds)
     {
-        CreateBoxes();
+        //CreateBoxes();
         for (int i = 0; i < _plantBoxes.Count; i++)
         {
             _plantBoxes[i].BoxClean += BoxCleaned;

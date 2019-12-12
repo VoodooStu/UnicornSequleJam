@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using VoodooPackages.Tech;
+using VoodooPackages.Tech.Items;
 
 public class InputController : SingletonMB<InputController>
 {
@@ -67,7 +69,7 @@ public class InputController : SingletonMB<InputController>
 
 
                 }
-                else
+                else if(_dragSeedBox!=null)
                 {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                     RaycastHit hit;
@@ -75,14 +77,36 @@ public class InputController : SingletonMB<InputController>
                     {
                        
                         PlantBox box = hit.transform.GetComponent<PlantBox>();
-                        if(box!=null)
+                        if (box != null)
+                        {
                             box.PlantCallBack?.Invoke(box, _dragSeedBox);
+                            if (ItemParticlesAnimator.Instance != null)
+                            {
+                                ItemParticlesAnimator.Instance.NewGenericRewardAnimation(CurrencyManager.Instance.MainCurrency, ItemParticlesAnimator.Instance.DefaultAnimation, 100, new Vector3(Screen.width/2,Screen.height/2,0)/*dragImage.gameObject.transform*/, IncrementalController.Instance.CurrencyDestination.transform.position);
+                                StartCoroutine(SlowlyAddToCurrency());
+                               
+                            }
+                        }
+                           
                     }
                 }
             }
             dragImage.gameObject.SetActive(false);
             _dragSeedBox = null;
             _nextSeedBox = null;
+        }
+        
+    }
+
+    private IEnumerator SlowlyAddToCurrency()
+    {
+        yield return new WaitForSeconds(0.5f);
+            int count = 0;
+        while (count < 100)
+        {
+            yield return null;
+            count += 2;
+            CurrencyManager.Instance.AddToMainCurrency(2);
         }
         
     }

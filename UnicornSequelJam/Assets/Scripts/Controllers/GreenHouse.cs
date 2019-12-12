@@ -25,22 +25,22 @@ public class GreenHouse : MonoBehaviour
 
     public void SaveSeeds()
     {
-        if (_seedBoxContainer != null)
-        {
-            _currentSeeds = _seedBoxContainer.CurrentSeeds();
-            List<string> ids = new List<string>();
-            foreach (var s in _currentSeeds)
-            {
-                ids.Add(s._id);
-            }
-            BinaryPrefs.SetClass<List<string>>(GreenHouseName + SeedString, ids);
-        }
-        if (_plantBoxContainer != null)
-        {
-            _plantData = _plantBoxContainer.GetData();
-            if (_plantData != null)
-                BinaryPrefs.SetClass<List<PlantData>>(GreenHouseName + PlantsString, _plantData);
-        }
+        //if (_seedBoxContainer != null)
+        //{
+        //    _currentSeeds = _seedBoxContainer.CurrentSeeds();
+        //    List<string> ids = new List<string>();
+        //    foreach (var s in _currentSeeds)
+        //    {
+        //        ids.Add(s._id);
+        //    }
+        //    BinaryPrefs.SetClass<List<string>>(GreenHouseName + SeedString, ids);
+        //}
+        //if (_plantBoxContainer != null)
+        //{
+        //    _plantData = _plantBoxContainer.GetData();
+        //    if (_plantData != null)
+        //        BinaryPrefs.SetClass<List<PlantData>>(GreenHouseName + PlantsString, _plantData);
+        //}
 
 
 
@@ -220,17 +220,17 @@ public class GreenHouse : MonoBehaviour
 
     private void LoadSeeds()
     {
-        List<string> ids = new List<string>();
-        ids = BinaryPrefs.GetClass<List<String>>(GreenHouseName + SeedString, new List<string>());
-        _currentSeeds = new List<Seed>();
-        if (ids != null && ids.Count > 0)
-        {
-            foreach (var s in ids)
-            {
-                _currentSeeds.Add(SeedController.Instance._seedLibrary.FirstOrDefault<Seed>(u => u._id == s));
-            }
-        }
-        _plantData = BinaryPrefs.GetClass<List<PlantData>>(GreenHouseName + PlantsString, new List<PlantData>());
+        //List<string> ids = new List<string>();
+        //ids = BinaryPrefs.GetClass<List<String>>(GreenHouseName + SeedString, new List<string>());
+        //_currentSeeds = new List<Seed>();
+        //if (ids != null && ids.Count > 0)
+        //{
+        //    foreach (var s in ids)
+        //    {
+        //        _currentSeeds.Add(SeedController.Instance._seedLibrary.FirstOrDefault<Seed>(u => u._id == s));
+        //    }
+        //}
+        //_plantData = BinaryPrefs.GetClass<List<PlantData>>(GreenHouseName + PlantsString, new List<PlantData>());
         
 
     }
@@ -267,18 +267,19 @@ public class GreenHouse : MonoBehaviour
     internal double Initialize(double minutes)
     {
         LoadSeeds();
-        if (_seedBoxContainer!=null)
+        if (_seedBoxContainer != null)
         {
             _seedBoxContainer.Initialize(_currentSeeds);
         }
+        //_plantData = new List<PlantData>();
         if (_plantBoxContainer != null)
         {
             _plantBoxContainer.Initialize(_plantData);
         }
-       
-        
 
-        return _plantBoxContainer.GetEarnings(minutes); ;
+
+
+        return 0;// _plantBoxContainer.GetEarnings(minutes); 
     }
 }
 [Serializable]

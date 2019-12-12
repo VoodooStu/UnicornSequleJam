@@ -15,10 +15,10 @@ MonoBehaviour:
   _index: 4
   _id: 09fa127f-3fa7-4083-af39-8ba4381032d7
   _name: Seed 5
-  _icon: {fileID: 21300000, guid: 7a8cd843c0a784ec893e3bef9e7496c8, type: 3}
-  _growthTimeInMinutes: 16
+  _icon: {fileID: 21300000, guid: b693d9571d85f45f0b8649a97b6cdc53, type: 3}
+  _growthTimeInMinutes: 0
   _currencyPerMinute: 0
-  _sproutObject: {fileID: -927199367670048503, guid: 8e1b5203fe16a4c0aa7a144d9ed4ee47,
+  _sproutObject: {fileID: 6755570664777583400, guid: 4e438f9d7d2404e718999c8ceb4251fb,
     type: 3}
-  _flowerObject: {fileID: 6963072765260616668, guid: 70210ead2733b403fad3aa6102673418,
+  _flowerObject: {fileID: 6755570664777583400, guid: 4e438f9d7d2404e718999c8ceb4251fb,
     type: 3}

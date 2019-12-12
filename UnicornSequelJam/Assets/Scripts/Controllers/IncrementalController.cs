@@ -15,6 +15,9 @@ public class IncrementalController : SingletonMB<IncrementalController>
         Initialize();
     }
     Timer returnsTimer;
+
+    public GameObject CurrencyDestination;
+
     public void Initialize()
     {
         returnsTimer = new Timer(10, 1,0f, true);

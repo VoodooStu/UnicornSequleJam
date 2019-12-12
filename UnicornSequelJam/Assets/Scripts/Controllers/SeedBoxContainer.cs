@@ -47,10 +47,10 @@ public class SeedBoxContainer : MonoBehaviour
 
     internal void Initialize(List<Seed> currentSeeds)
     {
-        for(int i = 0; i < _seedBoxes.Count&&i<currentSeeds.Count; i++)
-        {
-            _seedBoxes[i].PlaceSeed(currentSeeds[i]);
-        }
+        //for(int i = 0; i < _seedBoxes.Count&&i<currentSeeds.Count; i++)
+        //{
+        //    _seedBoxes[i].PlaceSeed(currentSeeds[i]);
+        //}
         for (int i = 0; i < _seedBoxes.Count ; i++)
         {
             _seedBoxes[i].ClickCall += ClickSeedBox;
