@@ -15,5 +15,6 @@ public class SeedBoxEditor : ButtonEditor
        data._seedIcon = (Image)EditorGUILayout.ObjectField("Icon", data._seedIcon, typeof(Image), true);
         data._seedText = (Text)EditorGUILayout.ObjectField("Text", data._seedText, typeof(Text), true);
         data._currentSeed = (Seed)EditorGUILayout.ObjectField("Seed", data._currentSeed, typeof(Seed), true);
+        data._highlight = (GameObject)EditorGUILayout.ObjectField("HighLight", data._highlight, typeof(GameObject), true);
     }
 }

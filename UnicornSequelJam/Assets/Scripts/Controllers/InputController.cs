@@ -11,7 +11,7 @@ public class InputController : SingletonMB<InputController>
 {
     public EventSystem _eventSystem;
     public GameObject _chestObject;
-
+    public GameObject _plantParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +49,14 @@ public class InputController : SingletonMB<InputController>
                 {
                     Debug.Log("Clicked on"+hit.transform.name);
                     PlantBox box = hit.transform.GetComponent<PlantBox>();
-                    if (box != null)
+                    if (box != null && box.OnBoxSelect!=null)
                     {
-                        box.OnBoxSelect?.Invoke(box);
+                        StartCoroutine(WaitAndTrigger(() => {
+
+                            box.OnBoxSelect?.Invoke(box);
+                        }));
+                        
+
                     }
                        
                     else if(hit.transform.gameObject == _chestObject)
@@ -94,13 +99,20 @@ public class InputController : SingletonMB<InputController>
                         PlantBox box = hit.transform.GetComponent<PlantBox>();
                         if (box != null)
                         {
+                            GameObject g = Instantiate(_plantParticle, this.transform);
+                            g.transform.position = box.transform.position + new Vector3(0,0.1f,0);
+                            Destroy(g, 1f);
                             box.PlantCallBack?.Invoke(box, _dragSeedBox);
-                            if (ItemParticlesAnimator.Instance != null)
-                            {
-                                ItemParticlesAnimator.Instance.NewGenericRewardAnimation(CurrencyManager.Instance.MainCurrency, ItemParticlesAnimator.Instance.DefaultAnimation, 100, new Vector3(Screen.width/2,Screen.height/2,0)/*dragImage.gameObject.transform*/, IncrementalController.Instance.CurrencyDestination.transform.position);
-                                StartCoroutine(SlowlyAddToCurrency());
-                               
-                            }
+                            StartCoroutine(WaitAndTrigger(()=> {
+
+                                if (ItemParticlesAnimator.Instance != null)
+                                {
+                                    ItemParticlesAnimator.Instance.NewGenericRewardAnimation(CurrencyManager.Instance.MainCurrency, ItemParticlesAnimator.Instance.DefaultAnimation, 100, new Vector3(Screen.width / 2, Screen.height / 2, 0)/*dragImage.gameObject.transform*/, IncrementalController.Instance.CurrencyDestination.transform.position);
+                                    StartCoroutine(SlowlyAddToCurrency());
+
+                                }
+                            }));
+                           
                         }
                            
                     }
@@ -122,6 +134,12 @@ public class InputController : SingletonMB<InputController>
             }
         }
 
+    }
+
+    private IEnumerator WaitAndTrigger(Action onEnd)
+    {
+        yield return new WaitForSeconds(0.5f);
+        onEnd?.Invoke();
     }
 
     private IEnumerator SlowlyAddToCurrency()
