@@ -49,9 +49,14 @@ public class InputController : SingletonMB<InputController>
                 {
                     Debug.Log("Clicked on"+hit.transform.name);
                     PlantBox box = hit.transform.GetComponent<PlantBox>();
-                    if (box != null)
+                    if (box != null && box.OnBoxSelect!=null)
                     {
-                        box.OnBoxSelect?.Invoke(box);
+                        StartCoroutine(WaitAndTrigger(() => {
+
+                            box.OnBoxSelect?.Invoke(box);
+                        }));
+                        
+
                     }
                        
                     else if(hit.transform.gameObject == _chestObject)
@@ -122,6 +127,12 @@ public class InputController : SingletonMB<InputController>
             }
         }
 
+    }
+
+    private IEnumerator WaitAndTrigger(Action onEnd)
+    {
+        yield return new WaitForSeconds(0.5f);
+        onEnd?.Invoke();
     }
 
     private IEnumerator SlowlyAddToCurrency()
