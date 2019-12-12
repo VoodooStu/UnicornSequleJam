@@ -12,11 +12,17 @@ public class InputController : SingletonMB<InputController>
     public EventSystem _eventSystem;
     public GameObject _chestObject;
     public GameObject _plantParticle;
+    public GameObject _touchParticle;
     // Start is called before the first frame update
     void Start()
     {
         dragImage.gameObject.SetActive(false);
         Input.multiTouchEnabled = false;
+    }
+    private void OnApplicationFocus(bool focus)
+    {
+        //Debug.Log("Foxus" + focus);
+        //Cursor.visible = !focus;
     }
 
     public Image dragImage;
@@ -36,6 +42,12 @@ public class InputController : SingletonMB<InputController>
     {
         if (Input.GetMouseButtonDown(0))
         {
+            if (_touchParticle != null)
+            {
+                _touchParticle.SetActive(false);
+                _touchParticle.SetActive(true);
+                _touchParticle.transform.position = Input.mousePosition;
+            }
             if (_eventSystem.IsPointerOverGameObject())
             {
                
