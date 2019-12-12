@@ -19,7 +19,7 @@ MonoBehaviour:
     range: 360
     radiusMin: 0.5
     radiusMax: 3
-    radiusFactor: 200
+    radiusFactor: 50
   dispersion: 1
   scaleAppearing:
     useCurve: 1

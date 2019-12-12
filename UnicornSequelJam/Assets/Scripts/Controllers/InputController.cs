@@ -10,6 +10,8 @@ using VoodooPackages.Tech.Items;
 public class InputController : SingletonMB<InputController>
 {
     public EventSystem _eventSystem;
+    public GameObject _chestObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,16 @@ public class InputController : SingletonMB<InputController>
                     PlantBox box = hit.transform.GetComponent<PlantBox>();
                     if(box!=null)
                         box.OnBoxSelect?.Invoke(box);
+                    else if(hit.transform.gameObject == _chestObject)
+                    {
+                        _chestObject.SetActive(false);
+                        if (ItemParticlesAnimator.Instance != null)
+                        {
+                            ItemParticlesAnimator.Instance.NewGenericRewardAnimation(CurrencyManager.Instance.MainCurrency, ItemParticlesAnimator.Instance.DefaultAnimation, 100, Input.mousePosition, IncrementalController.Instance.CurrencyDestination.transform.position);
+                            StartCoroutine(SlowlyAddToCurrency());
+
+                        }
+                    }
                 }
             }
         }
@@ -94,6 +106,10 @@ public class InputController : SingletonMB<InputController>
             dragImage.gameObject.SetActive(false);
             _dragSeedBox = null;
             _nextSeedBox = null;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            _chestObject.SetActive(true);
         }
         
     }

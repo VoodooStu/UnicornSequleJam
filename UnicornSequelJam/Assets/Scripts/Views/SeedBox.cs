@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -54,7 +55,13 @@ public class SeedBox : Button
         if(_seedText!=null)
             _seedText.text = seed._name;
         if (_seedIcon != null)
+        {
             _seedIcon.sprite = seed._icon;
+            _seedIcon.transform.localScale = Vector3.one;
+            _seedIcon.transform.DOPunchScale(Vector3.one, 0.1f);
+        }
+            
+
     }
 
     internal void RemoveSeed()

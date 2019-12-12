@@ -11,7 +11,7 @@ namespace VoodooPackages.Tech.Items
 		public TextMeshProUGUI  amount;
 		public Currency         currency;
 
-		//public new Animation    animation;
+		public new Animation    animation;
 
 		//Cache
 		private CurrencyManager currencyManager;
@@ -47,7 +47,7 @@ namespace VoodooPackages.Tech.Items
 				return;
 
             //TODO : delay the animation.Play if the user is on android and the currencyAdded has been fired through a Rewarded Video.
-            //animation.Play();
+            animation.Play();
             transform.DOComplete(true);
             transform.DOShakePosition(0.5f, 1, 20);
         }
