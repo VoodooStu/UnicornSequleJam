@@ -3143,6 +3143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Env_Fence_01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1567606216547520, guid: a6a1a104d1131e0478e25bde3f24d6bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4351926315614018, guid: a6a1a104d1131e0478e25bde3f24d6bd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.35946527
@@ -4732,6 +4736,10 @@ PrefabInstance:
     - target: {fileID: 1567606216547520, guid: a6a1a104d1131e0478e25bde3f24d6bd, type: 3}
       propertyPath: m_Name
       value: SM_Env_Fence_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567606216547520, guid: a6a1a104d1131e0478e25bde3f24d6bd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4351926315614018, guid: a6a1a104d1131e0478e25bde3f24d6bd, type: 3}
       propertyPath: m_LocalPosition.x
