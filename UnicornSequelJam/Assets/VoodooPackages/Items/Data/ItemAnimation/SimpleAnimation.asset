@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed5a09310b80e4526b12bed82c4f139f, type: 3}
   m_Name: SimpleAnimation
   m_EditorClassIdentifier: 
-  delayAppearing: 0.15
+  delayAppearing: 0.1
   disc:
     center: {x: 0, y: 0, z: 0}
     normal: {x: 0, y: 0, z: 0}
     range: 360
-    radiusMin: 0.1
+    radiusMin: 0.5
     radiusMax: 3
-    radiusFactor: 100
+    radiusFactor: 200
   dispersion: 1
   scaleAppearing:
     useCurve: 1
@@ -79,10 +79,10 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     curveTypeIndex: 13
-  delayAfterAppear: 0.2
-  delayGrouping: 0.5
-  allTogether: 0
-  delayBetweenRewards: 0
+  delayAfterAppear: 0.5
+  delayGrouping: 0.2
+  allTogether: 1
+  delayBetweenRewards: 0.001
   scaleGrouping:
     useCurve: 1
     reversed: 0

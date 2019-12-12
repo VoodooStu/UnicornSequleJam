@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 16750
   itemName: Coin
-  icon: {fileID: 21300000, guid: 9277890b349af43f1be06b0f296b8f13, type: 3}
+  icon: {fileID: 21300000, guid: 1646fa1f9c78d504ca28dd9185d499e6, type: 3}
   color: {r: 1, g: 1, b: 1, a: 1}
   enabled: 1
   defaultAmount: 100
   maxAmount: 50000
-  currentAmount: 210
+  currentAmount: 2477
