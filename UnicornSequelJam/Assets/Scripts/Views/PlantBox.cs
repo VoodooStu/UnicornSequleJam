@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using VoodooPackages.Tech.Times;
 using DG.Tweening;
 using VoodooPackages.Tech.Items;
+using TMPro;
 
 public class PlantBox : MonoBehaviour
 {
@@ -151,6 +152,28 @@ public class PlantBox : MonoBehaviour
         _data.plantID = _currentSeed._id;
         _data.hasReturnedSeed = _hasReturnedSeed;
         return _data;
+    }
+
+    public TextMeshPro coinText;
+
+    IEnumerator AwardCoins()
+    {
+        float randomTime = UnityEngine.Random.Range(4, 8f);
+        while (true)
+        {
+            yield return new WaitForSeconds(randomTime);
+            coinText.transform.parent.gameObject.SetActive(false);
+            coinText.transform.parent.gameObject.SetActive(true);
+            coinText.text = "" + ((_currentSeed._index + 1) * 10);
+        }
+    }
+
+    private void Awake()
+    {
+        if (coinText == null)
+            coinText = this.gameObject.GetComponentInChildren<TextMeshPro>();
+        if(_currentSeed!=null&&coinText!=null)
+            StartCoroutine(AwardCoins());
     }
 
     internal Seed Harvest()
