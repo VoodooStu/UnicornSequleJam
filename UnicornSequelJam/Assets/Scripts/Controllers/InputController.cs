@@ -42,12 +42,12 @@ public class InputController : SingletonMB<InputController>
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_touchParticle != null)
-            {
-                _touchParticle.SetActive(false);
-                _touchParticle.SetActive(true);
-                _touchParticle.transform.position = Input.mousePosition;
-            }
+            //if (_touchParticle != null)
+            //{
+            //    _touchParticle.SetActive(false);
+            //    _touchParticle.SetActive(true);
+            //    _touchParticle.transform.position = Input.mousePosition;
+            //}
             if (_eventSystem.IsPointerOverGameObject())
             {
                
