@@ -101,14 +101,18 @@ public class InputController : SingletonMB<InputController>
                         {
                             GameObject g = Instantiate(_plantParticle, this.transform);
                             g.transform.position = box.transform.position + new Vector3(0,0.1f,0);
-                            //Destroy(g, 1f);
+                            Destroy(g, 1f);
                             box.PlantCallBack?.Invoke(box, _dragSeedBox);
-                            if (ItemParticlesAnimator.Instance != null)
-                            {
-                                ItemParticlesAnimator.Instance.NewGenericRewardAnimation(CurrencyManager.Instance.MainCurrency, ItemParticlesAnimator.Instance.DefaultAnimation, 100, new Vector3(Screen.width/2,Screen.height/2,0)/*dragImage.gameObject.transform*/, IncrementalController.Instance.CurrencyDestination.transform.position);
-                                StartCoroutine(SlowlyAddToCurrency());
-                               
-                            }
+                            StartCoroutine(WaitAndTrigger(()=> {
+
+                                if (ItemParticlesAnimator.Instance != null)
+                                {
+                                    ItemParticlesAnimator.Instance.NewGenericRewardAnimation(CurrencyManager.Instance.MainCurrency, ItemParticlesAnimator.Instance.DefaultAnimation, 100, new Vector3(Screen.width / 2, Screen.height / 2, 0)/*dragImage.gameObject.transform*/, IncrementalController.Instance.CurrencyDestination.transform.position);
+                                    StartCoroutine(SlowlyAddToCurrency());
+
+                                }
+                            }));
+                           
                         }
                            
                     }
