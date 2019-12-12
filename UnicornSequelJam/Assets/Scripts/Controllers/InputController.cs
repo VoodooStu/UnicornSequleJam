@@ -11,7 +11,7 @@ public class InputController : SingletonMB<InputController>
 {
     public EventSystem _eventSystem;
     public GameObject _chestObject;
-
+    public GameObject _plantParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +99,9 @@ public class InputController : SingletonMB<InputController>
                         PlantBox box = hit.transform.GetComponent<PlantBox>();
                         if (box != null)
                         {
+                            GameObject g = Instantiate(_plantParticle, this.transform);
+                            g.transform.position = box.transform.position + new Vector3(0,0.1f,0);
+                            //Destroy(g, 1f);
                             box.PlantCallBack?.Invoke(box, _dragSeedBox);
                             if (ItemParticlesAnimator.Instance != null)
                             {

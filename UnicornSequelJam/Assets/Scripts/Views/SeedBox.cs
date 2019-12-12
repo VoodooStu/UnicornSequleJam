@@ -17,6 +17,7 @@ public class SeedBox : Button
         ClickCall?.Invoke(this);
         base.OnPointerDown(eventData);
     }
+    public GameObject _highlight;
     public override void OnPointerEnter(PointerEventData eventData)
     {
         if (Input.GetMouseButton(0))
@@ -60,7 +61,10 @@ public class SeedBox : Button
             _seedIcon.transform.localScale = Vector3.one;
             _seedIcon.transform.DOPunchScale(Vector3.one, 0.1f);
         }
-            
+        if (_highlight != null)
+        {
+            _highlight.SetActive(seed!=null &&seed._index == 6);
+        }
 
     }
 
@@ -71,6 +75,7 @@ public class SeedBox : Button
         _currentSeed = null;
         if (_seedIcon != null)
             _seedIcon.sprite = null;
+        _highlight.SetActive(false);
     }
     public void ForceAdd()
     {
